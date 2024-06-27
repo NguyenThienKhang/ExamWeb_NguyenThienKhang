@@ -17,6 +17,8 @@ namespace ExamWeb_NguyenThienKhang.Controllers
         public IActionResult Index()
         {
             var listPhim = _db.phims.ToList();
+            var tong = _db.phims.Sum(x => x.GiaVe);
+            ViewBag.SUM = tong;
             return View(listPhim);
         }
         public IActionResult Add()
